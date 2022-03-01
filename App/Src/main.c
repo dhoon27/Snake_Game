@@ -6,8 +6,8 @@
 int main()
 {
 	console_init();
-	print_InitWindow();
+	print_snake_char();
+	print_select();
 	game_select();
-	system("pause");
 	return 0;
 }

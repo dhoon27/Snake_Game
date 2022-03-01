@@ -22,7 +22,7 @@ void game_select(void)
 		}
 		if (GetAsyncKeyState(VK_RETURN) & 0x8000) { //enter
 			if (y == 18) {
-				
+				start_game();	
 			}
 			else if (y == 20) {
 				Sleep(500);

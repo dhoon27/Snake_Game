@@ -1,6 +1,6 @@
 #include "../Inc/print_window.h"
 
-void print_InitWindow(void)
+void print_snake_char(void)
 {
 	draw_x(9, 5, 10, '#');
 	draw_y(9, 5, 4, '#');
@@ -25,7 +25,9 @@ void print_InitWindow(void)
 	draw_y(61, 5, 8, '#');
 	draw_x(61, 9, 10, '#');
 	draw_x(61, 13, 10, '#');
-
+}
+void print_select(void)
+{
 	gotoxy(39, 18);
 	printf("Start");
 	gotoxy(39, 20);
