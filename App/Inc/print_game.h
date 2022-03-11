@@ -3,6 +3,7 @@
 
 typedef struct _APPLE{
     int x, y;
+    int nx, ny;
 }APPLE;
 
 typedef struct _SNAKE{
@@ -10,12 +11,11 @@ typedef struct _SNAKE{
     int dir;
     int length;
     int time;
+    int nx, ny;
 }SNAKE;
 
 APPLE apple;
 SNAKE snake;
-
-int nx, ny;
 
 void init_snake(void);
 void init_apple(void);
