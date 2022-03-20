@@ -1,73 +1,53 @@
-#include "../Inc/start_game.h"
 #include <stdlib.h>
+#include <time.h>
+#include "../Inc/start_game.h"
+#include "../Inc/console_config.h"
 
-char map[30][80];
+char map[MAX_X][MAX_Y];
 
 void start_game(void)
 {
+    /*int ngx[5] = {1, 2, 77, 78, 79}; //2~78 
+    int ngy[5] = {1, 1, 28, 28, 28}; //2~28
+    for(int i=0;i<5;i++){
+        Sleep(1000);
+        print_apple(ngx[i],ngy[i]);
+
+
+        Sleep(1000);
+        print_delete(ngx[i],ngy[i]);
+    }*/
+
     system("cls");
     print_border();
     
-    init_snake();
+    srand(time(0));
+
+    init_stage();
     init_apple();
+    init_snake();
+    
+    int cnt =0;
+    int nx,ny;
 
-    int gx = 10, gy = 20;
-    int ngx = gx, ngy = gy;
-    while(1){
-        gotoxy(gx , gy);
-        printf("$");
-        Sleep(1000);
+    int ms = stage.delay * MAKE_MS * 10;
+    while(ms > 0){
+        ms--;
+        print_snake(snake.x, snake.y);
+        delay_ms(stage.delay* MAKE_MS);
 
-        gotoxy(gx, gy);
-        printf(" ");
-        Sleep(1000);
-
-        gx = rand() % 26 + 1;
-        gy = rand() % 76 + 1;
-
+        print_delete(snake.x, snake.y);
+        delay_ms(stage.delay* MAKE_MS);
     }
-    // apple.x = rand() % 26 +1;
-    // apple.y = rand() % 76 +1;
-    
-    // gotoxy(apple.x, apple.y);
-    // printf("$");
-    // Sleep(20);
+    // while(1){
+    //     if(check_pos(snake.x, snake.y)){
+    //         delay_ms(2000 * MAKE_MS);
+    //         return;
+    //     }
 
-    // Sleep(20);
-    // print_apple();
-    // Sleep(1000);
+    //     print_snake(snake.x, snake.y);
+    // 	enter_key();
+        
+    // }
 
-    // print_snake();
-    // Sleep(1000);
-    /*while(1){
-        Sleep(1000);
-        gotoxy(30,15);
-        printf("  ");
-
-        gotoxy(30, 15);
-        printf("  ");
-
-        gotoxy(30, 15);
-        printf("$");
-    }*/
-    
-
-    // while (1) {
-    //     Sleep(20);
-    //     snake.time++;
-    //     Sleep(50);
-	// 	if (GetAsyncKeyState(VK_UP) & 0x8000) {
-	// 		snake.dir = 0;
-	// 	}
-	// 	if (GetAsyncKeyState(VK_DOWN) & 0x8000) {
-    //         snake.dir = 2;
-	// 	}
-	// 	if (GetAsyncKeyState(VK_LEFT) & 0x8000) {
-	// 		snake.dir = 3;
-	// 	}
-    //     if (GetAsyncKeyState(VK_RIGHT) & 0x8000) {
-	// 		snake.dir = 1;
-	// 	} 
-    //     print_snake();
-	// }
 }

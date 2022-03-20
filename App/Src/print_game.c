@@ -1,20 +1,12 @@
-#include "../Inc/print_game.h"
 #include <stdlib.h>
+#include "../Inc/print_game.h"
+#include "../Inc/game_config.h"
 
-void init_apple(void)
+
+void print_delete(int x,int y)
 {
-    apple.x = rand() % 26 +1;
-    apple.y = rand() % 76 +1;
-}
-void init_snake(void)
-{
-    snake.x = rand() % 24 + 3;
-    snake.y = rand() % 74 + 3;
-    snake.dir = rand() % 4;
-    snake.length = 1;
-    snake.time = 0;
-    snake.nx = snake.x;
-    snake.ny = snake.y;
+    gotoxy(x, y);
+    printf(" ");
 }
 void print_snake(int x, int y)
 {
