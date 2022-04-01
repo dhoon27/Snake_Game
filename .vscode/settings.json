@@ -2,6 +2,7 @@
     "files.associations": {
         "game_select.h": "c",
         "console_config.h": "c",
-        "print_game.h": "c"
+        "print_game.h": "c",
+        "game_config.h": "c"
     }
 }
